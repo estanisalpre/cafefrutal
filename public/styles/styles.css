@@ -264,7 +264,7 @@ main{
     justify-content: space-around;
     gap: 20px;
     padding: 10px;
-    background-image: url(/assets/img/backgrounds/background_01.png);
+    background-image: url(/public/assets/img/backgrounds/background_01.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -827,7 +827,7 @@ main{
     height: 880px;
     display: flex;
     justify-content: center;
-    background-image: url(/assets/img/logo/logo_con_fondo.jpg);
+    background-image: url(/public/assets/img/logo/logo_con_fondo.jpg);
     background-size: cover;
     background-position: center;
     align-items: center;
