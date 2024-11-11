@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mysql2 from 'mysql2';
-import {dirname, join} from 'path';
+import {dirname} from 'path';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -40,7 +40,7 @@ app.get('/productos', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'views', 'productos.html'));
 });
 // Servir archivos estáticos
-app.use(express.static(join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Ruta para la página de administración   
 //app.use('/public', express.static(path.join(__dirname, 'public')));
