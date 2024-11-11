@@ -43,7 +43,7 @@ app.get('/admin', (req, res) => {
 app.get('/productos', (req, res) => {   
   res.sendFile(__dirname + '/public/views/productos.html');
 });
-app.use(express.static(join(__dirname, 'public')));
+//app.use(express.static(join(__dirname, 'public')));
    
 //Ruta para actualizar el stock
 app.post('/update-stock', (req, res) => {
