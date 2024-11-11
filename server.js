@@ -36,13 +36,19 @@ app.get('/', (req, res) => {
 app.get('/admin', (req, res) => {   
   res.sendFile(path.join(__dirname, 'public', 'views', 'admin.html'));
 });
-app.get('/productos', (req, res) => {   
-  res.sendFile(path.join(__dirname, 'public', 'views', 'productos.html'));
-  if (err) { 
-    console.error('Error enviando archivo:', err); 
-    res.status(404).send('Archivo no encontrado'); 
-  }
+app.get('/productos', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'views', 'productos.html');
+  console.log(`Intentando enviar archivo: ${filePath}`);
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error('Error enviando archivo:', err);
+      res.status(404).send('Archivo no encontrado');
+    } else {
+      console.log('Archivo enviado exitosamente:', filePath);
+    }
+  });
 });
+
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
