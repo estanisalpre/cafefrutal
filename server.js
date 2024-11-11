@@ -30,11 +30,23 @@ if(pool){
     console.log('No conectado a la BD')
 }
 
+app.get('/', (req, res) => {  
+  res.sendFile(join(__dirname, 'index.html'));
+});
+app.get('/admin', (req, res) => {   
+  res.sendFile(join(__dirname, 'views', 'admin.html'));
+});
+app.get('/productos', (req, res) => {   
+  res.sendFile(join(__dirname, 'views', 'productos.html'));
+});
+// Servir archivos estáticos
+app.use(express.static(join(__dirname, 'public')));
+
 //Ruta para la página de administración   
 //app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Ruta para el archivo index.html en la raíz
-app.get('/', (req, res) => {  
+/* app.get('/', (req, res) => {  
   res.sendFile(__dirname + '/index.html');
 });
 app.get('/admin', (req, res) => {   
@@ -43,7 +55,7 @@ app.get('/admin', (req, res) => {
 app.get('/productos', (req, res) => {   
   res.sendFile(__dirname + '/public/views/productos.html');
 });
-app.use(express.static(join(__dirname, 'public')));
+app.use(express.static(join(__dirname, 'public'))); */
    
 //Ruta para actualizar el stock
 app.post('/update-stock', (req, res) => {
