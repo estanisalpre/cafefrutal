@@ -48,24 +48,9 @@ app.get('/productos', (req, res) => {
     }
   });
 });
-
-// Servir archivos estáticos
+//Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Ruta para la página de administración   
-//app.use('/public', express.static(path.join(__dirname, 'public')));
-
-// Ruta para el archivo index.html en la raíz
-/* app.get('/', (req, res) => {  
-  res.sendFile(__dirname + '/index.html');
-});
-app.get('/admin', (req, res) => {   
-    res.sendFile(__dirname + '/public/views/admin.html');
-  });
-app.get('/productos', (req, res) => {   
-  res.sendFile(__dirname + '/public/views/productos.html');
-});
-app.use(express.static(join(__dirname, 'public'))); */
    
 //Ruta para actualizar el stock
 app.post('/update-stock', (req, res) => {
