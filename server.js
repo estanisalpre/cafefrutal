@@ -38,10 +38,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 app.get('/admin', (req, res) => {   
-    res.sendFile(__dirname + '/views/admin.html');
+    res.sendFile(__dirname + '/public/views/admin.html');
   });
 app.get('/productos', (req, res) => {   
-  res.sendFile(__dirname + '/views/productos.html');
+  res.sendFile(__dirname + '/public/views/productos.html');
 });
 app.use(express.static(join(__dirname, 'public')));
    
