@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mysql2 from 'mysql2';
-import {dirname, join} from 'path';
+import {dirname, join, path} from 'path';
 import { fileURLToPath } from 'url';
 
 //Inicializamos
@@ -30,7 +30,23 @@ if(pool){
 }
 
 //Ruta para la página de administración   
-app.get('/', (req, res) => {  
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+// Ruta para el archivo index.html en la raíz
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Otras rutas
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'admin.html'));
+});
+
+app.get('/productos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'productos.html'));
+});
+
+/* app.get('/', (req, res) => {  
   res.sendFile(__dirname + '/public/index.html');
 });
 app.get('/admin', (req, res) => {   
@@ -39,7 +55,7 @@ app.get('/admin', (req, res) => {
 app.get('/productos', (req, res) => {   
   res.sendFile(__dirname + '/public/views/productos.html');
 });
-app.use(express.static(join(__dirname, 'public')));
+app.use(express.static(join(__dirname, 'public'))); */
    
 //Ruta para actualizar el stock
 app.post('/update-stock', (req, res) => {
