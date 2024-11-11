@@ -34,10 +34,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 app.get('/admin', (req, res) => {   
-  res.sendFile(path.join(__dirname, 'public', 'views', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'public', 'views', 'admin.php'));
 });
 app.get('/productos', (req, res) => {
-  const filePath = path.join(__dirname, 'public', 'views', 'productos.html');
+  const filePath = path.join(__dirname, 'public', 'views', 'productos.php');
   console.log(`Intentando enviar archivo: ${filePath}`);
   res.sendFile(filePath, (err) => {
     if (err) {
