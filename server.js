@@ -22,7 +22,7 @@ const pool = mysql2.createPool({
     connectionLimit: 10,
     queueLimit: 0
 });   
-        
+         
 //Verificamos que conecte a la BD 
 if(pool){
     console.log('Conectado a la BD')
