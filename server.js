@@ -38,6 +38,10 @@ app.get('/admin', (req, res) => {
 });
 app.get('/productos', (req, res) => {   
   res.sendFile(path.join(__dirname, 'public', 'views', 'productos.html'));
+  if (err) { 
+    console.error('Error enviando archivo:', err); 
+    res.status(404).send('Archivo no encontrado'); 
+  }
 });
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
@@ -117,6 +121,6 @@ app.delete('/delete-product/:id', (req, res) => {
 });
 
 //Ejecutamos servidor
-app.listen(443, () => {
+app.listen(3000, () => {
   console.log('Servidor iniciado en el puerto 3000');
 });
