@@ -113,6 +113,6 @@ app.delete('/delete-product/:id', (req, res) => {
 });
 
 //Ejecutamos servidor
-app.listen(65002, () => {
+app.listen(65002, () => { //65002 es el puerto SSH que me brindó Hostinger
   console.log('Servidor iniciado en el puerto 65002');
 });
