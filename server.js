@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mysql2 from 'mysql2';
 import {dirname, join} from 'path';
-//import path from 'path';
+import path from 'path';
 import { fileURLToPath } from 'url';
 
 //Inicializamos
@@ -31,13 +31,13 @@ if(pool){
 }
 
 app.get('/', (req, res) => {  
-  res.sendFile(join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 app.get('/admin', (req, res) => {   
-  res.sendFile(join(__dirname, 'public', 'views', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'public', 'views', 'admin.html'));
 });
 app.get('/productos', (req, res) => {   
-  res.sendFile(join(__dirname, 'public', 'views', 'productos.html'));
+  res.sendFile(path.join(__dirname, 'public', 'views', 'productos.html'));
 });
 // Servir archivos estáticos
 app.use(express.static(join(__dirname, 'public')));
