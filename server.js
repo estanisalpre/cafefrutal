@@ -1,7 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mysql2 from 'mysql2';
-import {dirname, join, path} from 'path';
+import {dirname, join} from 'path';
+import path from 'path';
 import { fileURLToPath } from 'url';
 
 //Inicializamos
