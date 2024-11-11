@@ -34,10 +34,10 @@ app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'index.html'));
 });
 app.get('/admin', (req, res) => {   
-  res.sendFile(join(__dirname, 'views', 'admin.html'));
+  res.sendFile(join(__dirname, 'public', 'views', 'admin.html'));
 });
 app.get('/productos', (req, res) => {   
-  res.sendFile(join(__dirname, 'views', 'productos.html'));
+  res.sendFile(join(__dirname, 'public', 'views', 'productos.html'));
 });
 // Servir archivos estáticos
 app.use(express.static(join(__dirname, 'public')));
