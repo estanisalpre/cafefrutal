@@ -1,0 +1,259 @@
+//Variables
+$backgroundImage: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+$coffeImageColor: linear-gradient(to top, #c79081 0%, #dfa579 100%); 
+$darkFontColor: #1e1e1e;
+$lightFontColor: #ececec;
+$latoFont: "Lato", sans-serif;
+$sm: 14px;
+$md: 16px;
+$lg: 22px;
+$slg: 30px;
+$noBold: 400;
+$bold: 600;
+
+//Mixins
+@mixin sizes($width: 100%, $height: 100%){
+    width: $width;
+    height: $height;
+}
+@mixin displayFlex($justifyContent: center, $flexDirection: column){
+    display: flex;
+    justify-content: $justifyContent;
+    flex-direction: $flexDirection;
+    align-items: center;
+}
+@mixin fontConfig($textAlign: center, $fontSize: $sm, $fontWeight: $noBold, $fontColor: $darkFontColor){
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $fontColor;
+    text-align: $textAlign;
+}
+@mixin buttonDesign($width: 100%){
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    font-family: $latoFont;
+    width: $width;
+    height: 40px;
+    text-align: center;
+    font-weight: $bold;
+    font-size: $md;
+    color: $darkFontColor;
+    cursor: pointer;
+}
+
+//Generales
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//Html & Body
+html, body{
+    @include sizes();
+    font-family: $latoFont;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+//Nav
+nav{
+    box-shadow: 0px 0px 10px 1px rgb(101, 101, 101);
+    @include sizes($height: 100px);
+    @include displayFlex($flexDirection:row, $justifyContent: space-around);
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+    background-image: $backgroundImage;
+
+    img{
+        @include sizes(12%,auto);
+        @include displayFlex();
+        margin-top: 80px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 1px #513c28;
+        background-image: $backgroundImage;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    img:hover{
+        transform: translateY(-10px)
+    }
+    button{
+        @include buttonDesign(20%);
+    }
+    button:hover{
+        background-color: $lightFontColor;
+    }
+}
+
+//Main
+main{
+    @include sizes();
+    @include displayFlex();
+    cursor: default;
+    gap: 5px;
+
+    h1, p{
+        @include sizes(70%,$height: 100px);
+        @include displayFlex();
+        border-radius: 10px;
+        align-items: flex-start;
+    }
+    h1{
+        font-size: 5vw;
+    }
+    p{
+        font-size: 3vw;
+        align-items: center;
+        box-shadow: 0px 0px 20px 3px rgb(133, 133, 133);
+    }
+    //Estilos para el modal
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+
+        div {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            width: 300px;
+
+            .close-button {
+                cursor: pointer;
+                color: red;
+                font-weight: bold;
+                float: right;
+            }
+        }
+    }
+    
+    //Agregar nuevo producto
+    .newProductSection, .productList{
+        @include sizes(90%,500px);
+        @include displayFlex($justifyContent: space-between);
+        box-shadow: 0px 0px 20px 1px rgb(66, 66, 66);
+
+        h3{
+            @include sizes($height: 40px);
+            @include displayFlex();
+            align-items: flex-start;
+            padding-left: 10px;
+            background-image: $backgroundImage;
+        }
+        form{
+            @include displayFlex();
+            @include sizes(80%);
+            gap: 15px;
+            align-items: flex-start;
+
+            input{
+                border: 1px solid black;
+                font-family: $latoFont;
+                background-color: transparent;
+                border-radius: 5px;
+                @include sizes(90%,70px);
+                padding: 10px;
+                font-size: $lg;
+            }
+            .addButtonInput{
+                cursor: pointer;
+                width: 25%;
+                border: 0px;
+                box-shadow: 0px 0px 5px 1px rgb(114, 114, 114);
+            }
+            .addButtonInput:hover{
+                background-image: $backgroundImage;
+            }
+        }
+        table{
+            @include sizes();
+            display: grid;
+            place-items: center;
+            overflow-y: scroll;
+
+            td{
+                @include sizes(300px,40px);
+                border-bottom: 1px solid black;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                text-align: center;
+
+                button{
+                    border-radius: 3px;
+                    background-color: transparent;
+                    cursor: pointer;
+                    border: 0px;
+                    @include sizes(70%);
+                }
+            }
+            
+        }
+    }
+    .newProductSection{
+        display: none;
+    }
+    .productList{
+        display: none;
+
+        h1{
+            @include sizes($height: 40px);
+            @include displayFlex();
+            align-items: flex-start;
+            padding-left: 10px;
+            background-image: $backgroundImage;
+            font-size: $lg;
+            border-radius: 0px;
+        }
+    }
+    #editForm{
+        @include sizes(90%,$height: 500px);
+        @include displayFlex();
+        box-shadow: 0px 0px 10px 1px black;
+        display: none;
+        position: fixed;
+        background-color: $lightFontColor;
+        overflow: hidden;
+
+        h2{
+            @include sizes($height: 30px);
+            font-size: $md;
+            @include displayFlex();
+            align-items: flex-start;
+            background-image: $backgroundImage;
+            padding-left: 10px;
+        }
+        form{
+            @include displayFlex();
+            @include sizes();
+            gap: 5px;
+
+            label{
+                @include sizes($height: 30px);
+                font-size: $md;
+                padding-left: 10px;
+            }
+            input{
+                @include sizes(95%,$height: 40px);
+                background-color: transparent;
+                border: 1px solid black;
+                outline: none;
+            }
+            button{
+                margin-top: 50px;
+                @include buttonDesign(90%);
+            }
+        }
+    }
+}

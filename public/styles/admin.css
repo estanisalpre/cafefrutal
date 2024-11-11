@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "Lato", sans-serif;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+nav {
+  box-shadow: 0px 0px 10px 1px rgb(101, 101, 101);
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  z-index: 9999;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+nav img {
+  width: 12%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px #513c28;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+nav img:hover {
+  transform: translateY(-10px);
+}
+nav button {
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-family: "Lato", sans-serif;
+  width: 20%;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1e1e1e;
+  cursor: pointer;
+}
+nav button:hover {
+  background-color: #ececec;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  gap: 5px;
+}
+main h1, main p {
+  width: 70%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  align-items: flex-start;
+}
+main h1 {
+  font-size: 5vw;
+}
+main p {
+  font-size: 3vw;
+  align-items: center;
+  box-shadow: 0px 0px 20px 3px rgb(133, 133, 133);
+}
+main .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+main .modal div {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 300px;
+}
+main .modal div .close-button {
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+  float: right;
+}
+main .newProductSection, main .productList {
+  width: 90%;
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 20px 1px rgb(66, 66, 66);
+}
+main .newProductSection h3, main .productList h3 {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
+  padding-left: 10px;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+main .newProductSection form, main .productList form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  gap: 15px;
+  align-items: flex-start;
+}
+main .newProductSection form input, main .productList form input {
+  border: 1px solid black;
+  font-family: "Lato", sans-serif;
+  background-color: transparent;
+  border-radius: 5px;
+  width: 90%;
+  height: 70px;
+  padding: 10px;
+  font-size: 22px;
+}
+main .newProductSection form .addButtonInput, main .productList form .addButtonInput {
+  cursor: pointer;
+  width: 25%;
+  border: 0px;
+  box-shadow: 0px 0px 5px 1px rgb(114, 114, 114);
+}
+main .newProductSection form .addButtonInput:hover, main .productList form .addButtonInput:hover {
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+main .newProductSection table, main .productList table {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow-y: scroll;
+}
+main .newProductSection table td, main .productList table td {
+  width: 300px;
+  height: 40px;
+  border-bottom: 1px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+}
+main .newProductSection table td button, main .productList table td button {
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0px;
+  width: 70%;
+  height: 100%;
+}
+main .newProductSection {
+  display: none;
+}
+main .productList {
+  display: none;
+}
+main .productList h1 {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
+  padding-left: 10px;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  font-size: 22px;
+  border-radius: 0px;
+}
+main #editForm {
+  width: 90%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 10px 1px black;
+  display: none;
+  position: fixed;
+  background-color: #ececec;
+  overflow: hidden;
+}
+main #editForm h2 {
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  padding-left: 10px;
+}
+main #editForm form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 5px;
+}
+main #editForm form label {
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+main #editForm form input {
+  width: 95%;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid black;
+  outline: none;
+}
+main #editForm form button {
+  margin-top: 50px;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-family: "Lato", sans-serif;
+  width: 90%;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1e1e1e;
+  cursor: pointer;
+}/*# sourceMappingURL=admin.css.map */
