@@ -89,6 +89,7 @@ app.get('/api/productos', (req, res) => {
 
 //Ruta para llamar a los productos DISPONIBLES
 app.get('/api/productos/available', (req, res) => { 
+  console.log('consultamos bd')
   const query = 'SELECT * FROM products WHERE available = 1'; 
   pool.query(query, (err, results) => { 
       if (err) throw err; 
@@ -112,6 +113,6 @@ app.delete('/delete-product/:id', (req, res) => {
 });
 
 //Ejecutamos servidor
-app.listen(3000, () => {
-  console.log('Servidor iniciado en el puerto 3000');
+app.listen(65002, () => {
+  console.log('Servidor iniciado en el puerto 65002');
 });
